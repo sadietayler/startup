@@ -1,0 +1,1 @@
+I think I'll keep my notes elsewhere for now and put them in here later.

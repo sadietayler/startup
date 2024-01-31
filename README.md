@@ -1,25 +1,24 @@
-# Fish Tank
-This application is a simple simulation game where players will manage an aquarium where they can raise, breed, and sell their fish. 
+# Choose Your Own Adventure
+This application is a simple game where players can select from different choices to advance down different paths in a storyline, like in the classic "Choose Your Own Adventure" books. 
 
 ## Elevator Pitch
-Are you ready to turn your aquarium hobby into a booming business? Buy fish for your tank, take good care of them, and breed them to get lots of fish babies! Keep your new fish friends, or sell them for a profit to buy more fish or aquarium decorations! Experiment with different combinations of parent fish to discover new varieties of fish! Got an aquarium you're especially proud of? Post a snapshop of it so that everyone can admire it! Will you be the greatest aquarist in town? 
+Remember those "Choose Your Own Adventure" books you would read as a kid? This is like that, but in a website! Click or tap to select what you want to do at each juncture in the storyline, and see where your choices take you!
 
 ## Design
-![fish tank design draft](https://github.com/sadietayler/startup/blob/main/fish%20tank.png)
+![fish tank design draft](https://github.com/sadietayler/startup/blob/main/cyoa.png)
 
 ## Features
 - Secure login
-- User tank is persistently stored
-- User can rearrange fish and decorations in the tank with drag-and-drop
-- Go to TankTown to view other users' publicly posted fish tanks. 
-- Loading bar animation while waiting for baby fish to grow up
+- User's position in the storyline is persistently stored
+- Users can click or tap to choose which action to take at each branch point in the storyline
+- Whenever someone on the website gets to the end of the story, their username and the ending they reached are displayed on a sidebar, along with a timestamp.
 
 ## Technologies
-- HTML: 3 HTML pages: one for login, one for TankTown, and one for the actual game
-- CSS: styling that looks good on different screen sizes, and basic animations
-- JavaScript: login, user interactivity
-- Service: login, view other users tanks
+- HTML: uses correct HTML structure. One page for the game itself, one page for login, and possibly one page to display user outcomes with timestamps.
+- CSS: styling that looks good on different screen sizes, easy to read. 
+- JavaScript: login, user interactivity, buttons
+- Service: login, view other users' story endings
 - Authentication: let users register and login.
-- Database: store users and tank configuration. 
-- WebSocket: when a user posts their tank, it's visible to all other users.
+- Database: store users and their position in the storyline 
+- WebSocket: each time a user reaches an ending in the story, their username and ending pop up on the sidebar. 
 - React: Application ported to use the React framework. 

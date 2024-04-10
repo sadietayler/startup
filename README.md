@@ -33,3 +33,12 @@ Remember those "Choose Your Own Adventure" books you would read as a kid? This i
 - Input box and submit button for login, and the user's name will be displayed at the top of the Play page
 - The History page has placeholder data representing the database
 - The Live Updates section on the Play page shows where realtime updates using WebSocket will go.
+
+# HTML Deliverable
+- Header, footer, and main content body
+- Navigation elements - I dropped the underlines and changed the color for anchor elements.
+- Responsive to window resizing - My app looks great on all window sizes and devices
+- Application elements - Used good contrast and whitespace
+- Application text content - Consistent fonts
+- Application images - Still don't have images and so no styling here. 😔
+

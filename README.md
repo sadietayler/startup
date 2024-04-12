@@ -34,11 +34,12 @@ Remember those "Choose Your Own Adventure" books you would read as a kid? This i
 - The History page has placeholder data representing the database
 - The Live Updates section on the Play page shows where realtime updates using WebSocket will go.
 
-# HTML Deliverable
-- Header, footer, and main content body
-- Navigation elements - I dropped the underlines and changed the color for anchor elements.
+# CSS Deliverable
+- Added the 3 CSS files: main.css, play.css, and history.css
+- Header, Body, and Footer elements
+- Navigation elements - made the menu pretty, and it lights up whichever page you're currently on
 - Responsive to window resizing - My app looks great on all window sizes and devices
 - Application elements - Used good contrast and whitespace
-- Application text content - Consistent fonts
-- Application images - Still don't have images and so no styling here. 😔
+- Application text content - Consistent fonts, which I got from Google. 
+- Application images - Adjusted padding and sizing on the image
 

@@ -8,6 +8,7 @@
     <title>Choose Your Own Adventure</title>
 
     <link rel="stylesheet" href="main.css" />
+    <script src="login.js"></script>
 
     <!-- Include bootstrap CSS framework -->
     <link
@@ -45,9 +46,9 @@
       <h3 class="text-success">Login to play</h3>
       <form method="get" action="play.html">
         <input type="text" id="name" placeholder="Your name here" />
-        <button type="submit" class="btn btn-secondary btn-sm">Login</button>
+        <button type="submit" onclick="login()" class="btn btn-secondary btn-sm">Login</button>
       </form>
-    </main>
+      </main>
 
     <footer class="bg-dark text-white-50">
       <div class="container-fluid">

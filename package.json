@@ -1,0 +1,12 @@
+{
+  "name": "startup",
+  "version": "1.0.0",
+  "description": "This application is a simple game where players can select from different choices to advance down different paths in a storyline, like in the classic \"Choose Your Own Adventure\" books.",
+  "main": "history.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

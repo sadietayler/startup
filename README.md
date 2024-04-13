@@ -43,3 +43,9 @@ Remember those "Choose Your Own Adventure" books you would read as a kid? This i
 - Application text content - Consistent fonts, which I got from Google. 
 - Application images - Adjusted padding and sizing on the image
 
+# JavaScript Deliverable
+
+- When the user enters their name, it's saved in localstorage, and displayed on the Play page.
+- When the user finishes the game, their ending is saved in an array and displayed on the History page.
+- Game functionality using JavaScript was added
+- Placeholder data for the realtime data using WebSocket was added, and updates every 15 seconds on the Play page. 

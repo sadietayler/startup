@@ -14,14 +14,11 @@ async function loadScores() {
         scores = JSON.parse(scoresText);
       }
     }
-  
     displayScores(scores);
   }
 
 function displayScores(scores) {
-    //let scores = JSON.parse(localStorage.getItem('scores') || '[]');
-  
-    const tableBodyEl = document.querySelector('#scores');
+      const tableBodyEl = document.querySelector('#scores');
   
     if (scores.length) {
         scores.forEach((score, index) => {
@@ -46,25 +43,6 @@ function displayScores(scores) {
     }
 }
 
-function displayQuote(data) {
-    fetch('https://api.quotable.io/random')
-      .then((response) => response.json())
-      .then((data) => {
-        const containerEl = document.querySelector('#quote');
-  
-        const quoteEl = document.createElement('p');
-        quoteEl.classList.add('quote');
-        const authorEl = document.createElement('p');
-        authorEl.classList.add('author');
-  
-        quoteEl.textContent = data.content;
-        authorEl.textContent = data.author;
-  
-        containerEl.appendChild(quoteEl);
-        containerEl.appendChild(authorEl);
-      });
-}
-
 function fetchRandomDogImage() {
     fetch('https://dog.ceo/api/breeds/image/random')
     .then(response => response.json())
@@ -81,7 +59,5 @@ function fetchRandomDogImage() {
     });
 }
 
-window.onload = fetchRandomDogImage;
-
-displayQuote();
+fetchRandomDogImage();
 loadScores();

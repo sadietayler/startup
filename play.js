@@ -73,14 +73,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function saveScore(score) {
-        let scores = [];
-        const scoresText = localStorage.getItem('scores');
-        if (scoresText) {
-          scores = JSON.parse(scoresText);
-        }
-        const date = new Date().toLocaleDateString();
-        const newScore = { name: userName, score: score, date: date };
+    function saveScore(endingDescription) {
+        let scores = JSON.parse(localStorage.getItem('scores') || '[]');
+        //const scoresText = localStorage.getItem('scores');
+        // if (scoresText) {
+        //   scores = JSON.parse(scoresText);
+        // }
+        //const date = new Date().toLocaleString();
+        const userName = localStorage.getItem('userName') || 'Anonymous';
+        const newScore = { 
+            name: userName, 
+            score: endingDescription, 
+            date: new Date().toLocaleString() 
+        };
         scores.push(newScore);
     
         localStorage.setItem('scores', JSON.stringify(scores));

@@ -91,6 +91,14 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('scores', JSON.stringify(scores));
       }
 
+    setInterval(() => {
+    const score = "finished the game";
+    const chatText = document.querySelector('#player-messages');
+    chatText.innerHTML =
+        `<div class="event">some_user just ${score}!</div>` +
+        chatText.innerHTML;
+    }, 15000);
+
     // Event Listeners
     choice1Button.addEventListener('click', function() {
         if (currentState === 0) {

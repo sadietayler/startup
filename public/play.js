@@ -73,23 +73,37 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function saveScore(endingDescription) {
-        let scores = JSON.parse(localStorage.getItem('scores') || '[]');
-        //const scoresText = localStorage.getItem('scores');
-        // if (scoresText) {
-        //   scores = JSON.parse(scoresText);
-        // }
-        //const date = new Date().toLocaleString();
-        const userName = localStorage.getItem('userName') || 'Anonymous';
-        const newScore = { 
-            name: userName, 
-            score: endingDescription, 
-            date: new Date().toLocaleString() 
-        };
+    async function saveScore(endingDescription) {
+        const userName = playerNameEl.textContent;
+        const date = new Date().toLocaleString();
+        const newScore = {name: userName, score: endingDescription, date: date};
+    
+        try {
+          const response = await fetch('/api/scores', {
+            method: 'POST',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify(newScore),
+          });
+    
+          // Store what the service gave us as the high scores
+          const scores = await response.json();
+          localStorage.setItem('scores', JSON.stringify(scores));
+        } catch {
+          // If there was an error then just track scores locally
+          updateScoresLocal(newScore);
+        }
+    }
+
+    function updateScoresLocal(newScore) {
+        let scores = [];
+        const scoresText = localStorage.getItem('scores');
+        if (scoresText) {
+          scores = JSON.parse(scoresText);
+        }
         scores.push(newScore);
     
         localStorage.setItem('scores', JSON.stringify(scores));
-      }
+    }
 
     setInterval(() => {
     const score = "finished the game";

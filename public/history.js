@@ -65,5 +65,23 @@ function displayQuote(data) {
       });
 }
 
+function fetchRandomDogImage() {
+    fetch('https://dog.ceo/api/breeds/image/random')
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "success") {
+            const imgElement = document.getElementById('dog-image');
+            imgElement.src = data.message; // Update image source
+        } else {
+            console.error('Failed to fetch dog image:', data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching dog image:', error);
+    });
+}
+
+window.onload = fetchRandomDogImage;
+
 displayQuote();
 loadScores();

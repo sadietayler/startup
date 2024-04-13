@@ -48,4 +48,11 @@ Remember those "Choose Your Own Adventure" books you would read as a kid? This i
 - When the user enters their name, it's saved in localstorage, and displayed on the Play page.
 - When the user finishes the game, their ending is saved in an array and displayed on the History page.
 - Game functionality using JavaScript was added
-- Placeholder data for the realtime data using WebSocket was added, and updates every 15 seconds on the Play page. 
+- Placeholder data for the realtime data using WebSocket was added, and updates every 15 seconds on the Play page.
+
+# Service Deliverable
+- Node.js/Express HTTP service - done!
+- Static middleware for frontend - done!
+- Calls to third party endpoints - Random dog image generator on History page
+- Backend service endpoints - Placeholders for login that stores the current user on the server. Endpoint for saving the outcome, name, and timestamp every time a user finishes the game
+- Frontend calls service endpoints - History page fetches game logs, and displays it. 

@@ -40,17 +40,13 @@ async function createUser(email, password) {
   return user;
 }
 
-function addScore(score) {
-  scoreCollection.insertOne(score);
+async function addScore(score) {
+  await scoreCollection.insertOne(score);
 }
 
 function getHighScores() {
-  const query = { score: { $gt: 0, $lt: 900 } };
-  const options = {
-    sort: { score: -1 },
-    limit: 10,
-  };
-  const cursor = scoreCollection.find(query, options);
+  const query = {};  // An empty query object to fetch all documents
+  const cursor = scoreCollection.find(query);
   return cursor.toArray();
 }
 

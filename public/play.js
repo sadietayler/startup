@@ -79,11 +79,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const newScore = {name: userName, score: endingDescription, date: date};
     
         try {
-          const response = await fetch('/api/scores', {
+          const response = await fetch('/api/score', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify(newScore),
           });
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
     
           // Store what the service gave us as the high scores
           const scores = await response.json();

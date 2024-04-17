@@ -8,7 +8,6 @@
     <title>Choose Your Own Adventure</title>
 
     <link rel="stylesheet" href="main.css" />
-    <script src="login.js"></script>
 
     <!-- Include bootstrap CSS framework -->
     <link
@@ -32,18 +31,11 @@
           <li class="nav-item">
             <a class="nav-link active" href="index.html">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="play.html">Play</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="history.html">History</a>
-          </li>
         </menu>
       </nav>
     </header>
 
     <main class="bg-light text-dark container-fluid text-center">
-      <h3 class="text-success">Login toooooo play</h3>
       <!-- <form method="get" action="play.html">
         <input type="text" id="name" placeholder="Your name here" />
         <button type="submit" onclick="login()" class="btn btn-secondary btn-sm">Login</button>
@@ -51,6 +43,9 @@
 
       <!-- Displayed when needing authentication -->
       <div id="loginControls" style="display: none">
+        <h3 class="text-success">Welcome!</h3>
+        <h5 class="text-success">Login to play</h5>
+        <br>
         <div class="input-group mb-3">
           <span class="input-group-text">@</span>
           <input class="form-control" type="text" id="userName" placeholder="your@email.com" />
@@ -61,26 +56,16 @@
         </div>
         <button type="button" class="btn btn-primary" onclick="loginUser()">Login</button>
         <button type="button" class="btn btn-primary" onclick="createUser()">Create</button>
+        <br><br>
+        <div id="error-message" class="alert alert-danger" style="display: none;"></div>
       </div>
       <!-- Displayed when ready to play -->
       <div id="playControls" style="display: none">
-        <div id="playerName"></div>
-        <button type="button" class="btn btn-primary" onclick="play()">Play</button>
+        <h3 class="text-success">Welcome, <span id="playerName"></span>!</h3>
+        <br>
+        <button type="button" class="btn btn-success" onclick="play()">Play</button>
         <button type="button" class="btn btn-secondary" onclick="logout()">Logout</button>
       </div>
-
-      <!-- Error dialog -->
-      <div class="modal fade" id="msgModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content text-dark">
-            <div class="modal-body">error message here</div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </main>
 
     <footer class="bg-dark text-white-50">
@@ -92,5 +77,6 @@
       </div>
     </footer>
 
+    <script src="login.js"></script>
   </body>
 </html>

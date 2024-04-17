@@ -50,6 +50,13 @@ Remember those "Choose Your Own Adventure" books you would read as a kid? This i
 - Game functionality using JavaScript was added
 - Placeholder data for the realtime data using WebSocket was added, and updates every 15 seconds on the Play page.
 
+# Service Deliverable
+- Node.js/Express HTTP service - done!
+- Static middleware for frontend - done!
+- Calls to third party endpoints - Random dog image generator on History page
+- Backend service endpoints - Placeholders for login that stores the current user on the server. Endpoint for saving the outcome, name, and timestamp every time a user finishes the game
+- Frontend calls service endpoints - History page fetches game logs, and displays it. 
+
 # DB/Login Deliverable
 Users can register/login, and their credentials are stored in the database. When they finish the game, their game log is stored as well, and appears on the History page. 
 

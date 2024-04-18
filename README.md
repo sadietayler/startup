@@ -65,3 +65,11 @@ Users can register/login, and their credentials are stored in the database. When
 - User registration - Creates a new account in the database.
 - Use MongoDB to store credentials - Stores the users and their game logs
 - Restricts functionality - You cannot play or view the history until you have logged in.
+  
+# WebSocket Deliverable
+For this deliverable I used WebSocket to update the live updates on the frontend in realtime, as people start and finish the game. 
+
+ Backend listens for WebSocket connection - done!
+ Frontend makes WebSocket connection - done!
+ Data sent over WebSocket connection - done!
+ WebSocket data displayed - Every time a user starts or ends a game, it displays in realtime. 

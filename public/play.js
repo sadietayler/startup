@@ -16,10 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentState = 0;
     let socket;
 
-    function displayMsg(cls, from, msg) {
+    function displayMsg(from, msg) {
         const chatText = document.querySelector('#player-messages');
-        chatText.innerHTML =
-        `<div class="event"><span>${from}</span> ${msg}</div>` + chatText.innerHTML;
+        chatText.innerHTML = `<div><span>${from}</span> ${msg}</div>` + chatText.innerHTML;
     }
 
     const broadcastEvent = (from, type, value) => {
@@ -30,47 +29,42 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         if (socket && socket.readyState === WebSocket.OPEN) {
             socket.send(JSON.stringify(event));
+            console.log("is working");
         } else {
             console.error("WebSocket is not open. ReadyState:", socket ? socket.readyState : "Socket not initialized");
         }
     };
     
     // Configure WebSocket
-    console.log("test");
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
     socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
     socket.onopen = () => {
         console.log("open");
-        displayMsg('system', 'game', 'connected');
-        broadcastEvent(playerNameEl.textContent, GameStartEvent, {});
+        displayMsg('game', 'connected');
     };
     socket.onerror = (error) => {
         console.error('WebSocket error:', error);
     };
     socket.onclose = (event) => {
-        displayMsg('system', 'game', 'disconnected');
+        displayMsg('game', 'disconnected');
         broadcastEvent(playerNameEl.textContent, GameEndEvent, {});
     };
     socket.onmessage = async (event) => {
         const msg = JSON.parse(await event.data.text());
         console.log("hi");
         if (msg.type === GameEndEvent) {
-            displayMsg('player', msg.from, `just ${msg.value.score}!`);
+            displayMsg(msg.from, `just ${msg.value.score}!`);
         } else if (msg.type === GameStartEvent) {
-            displayMsg('player', msg.from, `started a new game`);
+            displayMsg(msg.from, `started a new game`);
         }
     };
 
     // Initialize game
     playerNameEl.textContent = localStorage.getItem('userName') ?? 'Mystery player';
     updateStory(currentState);
+    broadcastEvent(playerNameEl.textContent, GameStartEvent, {});
+    displayMsg(playerNameEl.textContent, 'just started a new game!');
     resetButton.style.display = 'none';
-
-    // socket.onopen = (event) => {
-    //     displayMsg('system', 'game', 'connected');
-    //     // Now that the WebSocket is open, let other players know a new game has started
-    //     broadcastEvent(playerNameEl.textContent, GameStartEvent, {});
-    // };
 
     // Functions
     function updateStory(state) {
@@ -133,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const userName = playerNameEl.textContent;
         const date = new Date().toLocaleString();
         const newScore = {name: userName, score: endingDescription, date: date};
-        displayMsg('player', userName, `just ${endingDescription}!`);
+        displayMsg(userName, `just ${endingDescription}!`);
 
     
         try {
@@ -147,8 +141,6 @@ document.addEventListener('DOMContentLoaded', function() {
           }
           // Let other players know the game has concluded
           broadcastEvent(userName, GameEndEvent, newScore);
-          displayMsg('player', msg.from, `just ${msg.value.score}!`);
-          console.log("done");
 
           // Store what the service gave us as the high scores
           const scores = await response.json();
@@ -169,18 +161,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
         localStorage.setItem('scores', JSON.stringify(scores));
     }
-
-    
-  // Functionality for peer communication using WebSocket
-
-    // function broadcastEvent(from, type, value) {
-    //     const event = {
-    //     from: from,
-    //     type: type,
-    //     value: value,
-    //     };
-    //     socket.send(JSON.stringify(event));
-    // }
 
     // Event Listeners
     choice1Button.addEventListener('click', function() {
@@ -208,6 +188,8 @@ document.addEventListener('DOMContentLoaded', function() {
     resetButton.addEventListener('click', function() {
         currentState = 0; // Reset game state to the beginning
         updateStory(currentState);
+        broadcastEvent(playerNameEl.textContent, GameStartEvent, {});
+        displayMsg(playerNameEl.textContent, 'just started a new game!');
     });
 
 });

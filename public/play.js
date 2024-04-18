@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     socket.onmessage = async (event) => {
         const msg = JSON.parse(await event.data.text());
-        console.log("hi");
         if (msg.type === GameEndEvent) {
             displayMsg(msg.from, `just ${msg.value.score}!`);
         } else if (msg.type === GameStartEvent) {

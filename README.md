@@ -69,7 +69,7 @@ Users can register/login, and their credentials are stored in the database. When
 # WebSocket Deliverable
 For this deliverable I used WebSocket to update the live updates on the frontend in realtime, as people start and finish the game. 
 
- Backend listens for WebSocket connection - done!
- Frontend makes WebSocket connection - done!
- Data sent over WebSocket connection - done!
- WebSocket data displayed - Every time a user starts or ends a game, it displays in realtime. 
+- Backend listens for WebSocket connection - done!
+- Frontend makes WebSocket connection - done!
+- Data sent over WebSocket connection - done!
+- WebSocket data displayed - Every time a user starts or ends a game, it displays in realtime. 

@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         if (socket && socket.readyState === WebSocket.OPEN) {
             socket.send(JSON.stringify(event));
-            console.log("is working");
         } else {
             console.error("WebSocket is not open. ReadyState:", socket ? socket.readyState : "Socket not initialized");
         }
@@ -39,8 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
     socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
     socket.onopen = () => {
-        console.log("open");
-        displayMsg('game', 'connected');
+-        displayMsg('game', 'connected');
     };
     socket.onerror = (error) => {
         console.error('WebSocket error:', error);
